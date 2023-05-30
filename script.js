@@ -19,18 +19,14 @@ var macroPreviewImg = document.querySelector('#macro-preview-img');
 var macroOutput = document.getElementById('macro-output-textarea');
 // Update the preview name
 macroName.addEventListener('input', function(){
-	if(macroName.value == ''){
-		macroPreviewName.innerHTML = "Attack";
-	} else{
+	if(macroName.value != ''){
 		macroPreviewName.innerHTML = macroName.value;
 	}
 })
 
 // Update the preview image/gif 
 macroImg.addEventListener('input', function(){
-	if(macroImg.value == ''){
-		macroPreviewImg.src = "";
-	} else{
+	if(macroImg.value != ''){
 		macroPreviewImg.src = macroImg.value;
 	}
 })
