@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+}
+p{
+	margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+#body-content{
+	display: flex;
+}
+#macro-info{
+	width: 70%;
+	height: 100vh;
+	padding-top: 40px;
+	background: linear-gradient(-45deg, #ea018c, #772b90);
+	box-shadow: 2px 0px 12px;
+}
+#macro-form{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+#macro-preview{
+	display: inline-block;
+	width: calc(30% - 40px);
+	padding: 40px 20px 0px 20px;
+}
+
+.macro-form-div-input{
+	text-align: center;
+}
+
+.macro-input-text, .macro-input-select{
+	width: calc(60% - 10px);
+	height: 30px;
+	padding-left: 10px;
+	margin-bottom: 20px;
+	border: 0px solid transparent;
+	border-radius: 10px;
+	outline: none;
+}
+
+.macro-input-select{
+	width: 60%;
+}
+.macro-input-text:focus, .macro-input-select:focus{
+	outline: 1px solid black;
+}
+
+.macro-input-checkbox{
+    display: inline-flex;
+    color: white;
+    width: 50%;
+}
+.macro-input-checkbox p{
+    width: 100%;
+    text-align: left;
+    margin-left: auto;
+}
+.macro-input-checkbox input[type="checkbox"]{
+	width: 15px;
+}
+
+#macro-output-div{
+	width: 100%;
+	margin-top: 15px;
+	height: auto;
+	text-align: center;
+}
+#macro-output-textarea{
+	width: calc(80% - 10px);
+	min-height: 100px;
+	border: 0px solid transparent;
+	border-radius: 10px;
+	padding: 10px;
+	resize: none;
+	outline: none;
+}
+#macro-output-textarea:focus{
+	outline: 1px solid black;
+}
+
+#macro-output-btns{
+	text-align: center;
+}
+
+.macro-btn{
+	min-width: 170px;
+	height: 30px;
+	padding: 0px 10px;
+	margin: 5px 0;
+	color: white;
+	background-color: transparent;
+	border: 2px solid white;
+	border-radius: 10px;
+	transition: all 0.3s ease-out;
+}
+.macro-btn:hover{
+	background-color: white;
+	color: black;
+	transition: all 0.15s;
+}
+.macro-btn:active{
+	background: lightgrey;
+	border: 2px solid lightgrey;
+}
+
+#macro-preview-square{
+	border: 1px solid #702082;
+}
+#macro-peview-header{
+	background-color: #702082;
+	color: white;
+}
+#macro-preview-name{
+	font-family: "Arial";
+	padding: 5px;
+
+}
+
+#macro-preview-img{
+	max-width: 90%;
+	margin: 5px;
+}
+
+.macro-preview-row{
+	font-family: "Arial";
+	font-weight: 600;
+	color: #404040;
+	background-color: #eee;
+    display: flex;
+    justify-content: end;
+    padding: 3px 10% 3px 0;
+}
+
+.macro-preview-row-roll{
+	background-color: #fef68e;
+	padding: 0 3px 0 3px;
+    margin: 0 5px;
+}
