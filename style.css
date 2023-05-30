@@ -10,6 +10,7 @@ p{
     margin-block-end: 0em;
 }
 
+/* Sections */
 #body-content{
 	display: flex;
 }
@@ -31,10 +32,10 @@ p{
 	padding: 40px 20px 0px 20px;
 }
 
+/* Text and Select inputs */
 .macro-form-div-input{
 	text-align: center;
 }
-
 .macro-input-text, .macro-input-select{
 	width: calc(60% - 10px);
 	height: 30px;
@@ -44,7 +45,6 @@ p{
 	border-radius: 10px;
 	outline: none;
 }
-
 .macro-input-select{
 	width: 60%;
 }
@@ -52,6 +52,7 @@ p{
 	outline: 1px solid black;
 }
 
+/* Checkbox inputs  */
 .macro-input-checkbox{
     display: inline-flex;
     color: white;
@@ -66,6 +67,22 @@ p{
 	width: 15px;
 }
 
+/* Number inputs */
+.macro-input-number{
+    display: inline-flex;
+    color: white;
+    width: 50%;
+}
+.macro-input-number p{
+    width: 100%;
+    text-align: left;
+    margin-left: auto;
+}
+.macro-input-number input[type="number"]{
+	width: 50px;
+}
+
+/* Output textarea */
 #macro-output-div{
 	width: 100%;
 	margin-top: 15px;
@@ -85,10 +102,11 @@ p{
 	outline: 1px solid black;
 }
 
+
+/* Buttons */ 
 #macro-output-btns{
 	text-align: center;
 }
-
 .macro-btn{
 	min-width: 170px;
 	height: 30px;
@@ -110,6 +128,7 @@ p{
 	border: 2px solid lightgrey;
 }
 
+/* Preview frame */
 #macro-preview-square{
 	border: 1px solid #702082;
 }
@@ -122,12 +141,10 @@ p{
 	padding: 5px;
 
 }
-
 #macro-preview-img{
 	max-width: 90%;
 	margin: 5px;
 }
-
 .macro-preview-row{
 	font-family: "Arial";
 	font-weight: 600;
@@ -137,7 +154,6 @@ p{
     justify-content: end;
     padding: 3px 10% 3px 0;
 }
-
 .macro-preview-row-roll{
 	background-color: #fef68e;
 	padding: 0 3px 0 3px;

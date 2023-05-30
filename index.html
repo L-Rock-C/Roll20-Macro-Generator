@@ -13,12 +13,15 @@
 			<h3 style="color: white; text-align: center;">Macro Generator</h3><br>
 			<div>
 				<form id="macro-form">
+					<!-- Attack name --> 
 					<div class="macro-form-div-input">
 						<input class="macro-input-text" type="text" name="macro-name" placeholder="Attack name">
 					</div>
+					<!-- Damage --> 
 					<div class="macro-form-div-input">
-						<input class="macro-input-text" type="text" name="macro-dmg" placeholder="Damage">
+						<input class="macro-input-text" type="text" name="macro-damage" placeholder="Damage">
 					</div>
+					<!-- Attribute --> 
 					<div class="macro-form-div-input">
 						<select class="macro-input-select" name="macro-attribute">
 							<option>Select Attribute</option>
@@ -30,40 +33,76 @@
 							<option>Charisma</option>
 						</select>
 					</div>
+					<!-- Critical --> 
 					<div class="macro-form-div-input">
-						<input class="macro-input-text" type="text" name="macro-critic" placeholder="Critical damage">
+						<input class="macro-input-text" type="text" name="macro-critical" placeholder="Critical damage">
 					</div>
+					<!-- Image/gif --> 
 					<div class="macro-form-div-input">
 						<input class="macro-input-text" type="text" name="macro-img-gif" placeholder="Image/gif">
 					</div>
+					<!-- Attack quantity --> 
 					<div class="macro-form-div-input">
-						<input class="macro-input-text" type="number" name="macro-attk-qtd" placeholder="Attack quantity" value="1" min="0">
+						<div class="macro-input-number">
+							<p>Number of attacks</p>
+							<input class="macro-input-text" type="number" name="macro-attk-qtd" placeholder="Attack quantity" value="1" min="0">
+						</div>
 					</div>
+					<!-- Effect type --> 
 					<div class="macro-form-div-input">
-						<select class="macro-input-select">
+						<select class="macro-input-select" name="macro-effect-type">
 							<option>Select effect type</option>
+							<option>Beam</option>
+							<option>Bomb</option>
+							<option>Breath</option>
+							<option>Bubbling</option>
+							<option>Burn</option>
+							<option>Explode</option>
+							<option>Glow</option>
+							<option>Missile</option>
+							<option>Nova</option>
+							<option>Splatter</option>
 						</select>
 					</div>
+					<!-- Proficiency --> 
 					<div class="macro-form-div-input">
 						<div class="macro-input-checkbox">
 							<p>Proficiency</p>
 							<input type="checkbox" name="macro-pb">
 						</div>
 					</div>
+					<!-- Effect color --> 
 					<div class="macro-form-div-input">
-						<select class="macro-input-select">
+						<select class="macro-input-select" name="macro-effect-color">
 							<option>Select effect color</option>
+							<option>Acid</option>
+							<option>Blood</option>
+							<option>Charm</option>
+							<option>Death</option>
+							<option>Fire</option>
+							<option>Frost</option>
+							<option>Holy</option>
+							<option>Magic</option>
+							<option>Slime</option>
+							<option>Smoke</option>
+							<option>Water</option>
 						</select>
 					</div>
+					<!-- Global modifier --> 
 					<div class="macro-form-div-input">
 						<div class="macro-input-checkbox">
 							<p>Global attack modifier</p>
 							<input type="checkbox" name="macro-global-attk-mod">
 						</div>
 					</div>
+					<!-- Critical range --> 
 					<div class="macro-form-div-input">
-						<input class="macro-input-text" type="number" name="macro-crit-range" value="20">
+						<div class="macro-input-number">
+							<p>Critical range</p>
+							<input class="macro-input-text" type="number" name="macro-critical-range" min="0" value="20">
+						</div>
 					</div>
+					<!-- Global damage --> 
 					<div class="macro-form-div-input">
 						<div class="macro-input-checkbox">
 							<p>Global damage modifier</p>
@@ -71,12 +110,14 @@
 						</div>
 					</div>
 				</form>	
+				<!-- Macro output --> 
 				<div id="macro-output-div">
 					<textarea id="macro-output-textarea"></textarea>
 				</div>
+				<!-- Buttons --> 
 				<div id="macro-output-btns">
-					<button class="macro-btn">Generate macro</button>
-					<button class="macro-btn">Copy to transfer area</button>
+					<button class="macro-btn" onClick="genMacro()">Generate macro</button>
+					<button class="macro-btn" onClick="copyMacro()">Copy to clipboard</button>
 					<button class="macro-btn">Clear</button>
 				</div>
 			</div>
@@ -87,12 +128,12 @@
 			<br>
 			<div id="macro-preview-square">
 				<div id="macro-peview-header">
-					<p id="macro-preview-name">Attack</p>
+					<p id="macro-preview-name"></p>
 				</div>
 					<img id="macro-preview-img">
 					<div class="complete-attack-row"> 
 						<div class="macro-preview-row">
-							<p>1° Attack:</p>
+							<p>Attack:</p>
 							<div class="macro-preview-row-roll">
 								<p>10</p>
 							</div>
@@ -102,7 +143,7 @@
 							</div>
 						</div>
 						<div class="macro-preview-row" style="background-color: white;">
-							<p>1° Damage:</p>
+							<p>Damage:</p>
 							<div class="macro-preview-row-roll">
 								<p>7</p>
 							</div>
