@@ -221,7 +221,7 @@ input:checked + .slider:before{
 }
 
 @media screen and (min-height: 800px) and (min-width: 1380px){
-	.frame-title{
+	.frame-title, .frame-title-preview{
     	font-size: 32px;
     	height: 5%;
 	}
@@ -239,6 +239,9 @@ input:checked + .slider:before{
 	.switch{
 		width: 90px;
 		height: 50px;
+	}
+	.macro-input-checkbox label{
+		width: 120px;
 	}
 	.slider:before{
 		width: 40px;
