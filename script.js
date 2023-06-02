@@ -12,7 +12,6 @@ var macroGlobalDamage = document.getElementsByName('macro-global-dmg-mod')[0];
 var macroEffectType = document.getElementsByName('macro-effect-type')[0];
 var macroEffectColor = document.getElementsByName('macro-effect-color')[0];
 
-
 var macroPreviewName = document.querySelector('#macro-preview-name');
 var macroPreviewImg = document.querySelector('#macro-preview-img');
 
@@ -53,6 +52,42 @@ macroAttkQtd.addEventListener('input', function(){
 	}
 });
 
+
+// Theme mode
+var themeMode = document.getElementsByName('theme-mode')[0];
+var macroInfo = document.getElementById('macro-info');
+var macroPreview = document.getElementById('macro-preview');
+var themeModeIcon = document.getElementById('theme-mode-icon');
+var macroPreviewSquare = document.getElementById('macro-preview-square');
+var macroPreviewRow1 = document.getElementsByClassName('macro-preview-row-1')[0];
+var macroPreviewRow2 = document.getElementsByClassName('macro-preview-row-2')[0];
+var macroPreviewRowRoll = document.getElementsByClassName('macro-preview-row-roll');
+var macroPreviewTitle = document.getElementsByClassName('frame-title-preview')[0];
+themeMode.addEventListener('change', function(){
+	if(themeMode.checked == true){
+		themeModeIcon.src = 'icons/moon_icon.png';
+		macroInfo.style = "background: linear-gradient(-45deg, #560033, #2d1336);";
+		macroPreview.style = "background-color: #353535";
+		macroPreviewSquare.style = "background-color: #1f1f1f;";
+		macroPreviewRow2.style = "background-color: transparent; color: white;";
+		macroPreviewRow1.style = "background-color: #353535; color: white;";
+		for (var i = macroPreviewRowRoll.length - 1; i >= 0; i--) {
+			macroPreviewRowRoll[i].style = "background-color: #702082;";
+		}
+		macroPreviewTitle.style = "color: white;";
+	} else{
+		themeModeIcon.src = 'icons/sun_icon.png';
+		macroInfo.style = "background: linear-gradient(-45deg, #ea018c, #772b90);";
+		macroPreview.style = "background-color: white";
+		macroPreviewSquare.style = "background-color: transparent;";
+		macroPreviewRow1.style = "background-color: #ccc; color: black;";
+		macroPreviewRow2.style = "background-color: white; color: black;";
+		for (var i = macroPreviewRowRoll.length - 1; i >= 0; i--) {
+			macroPreviewRowRoll[i].style = "background-color: #fef68e;";
+		}
+		macroPreviewTitle.style = "color: #702082;";
+	}
+})
 
 // Generate de Macro
 macro = "";
@@ -110,10 +145,10 @@ function genMacro(){
 	}
 
 	if(macroAttkQtd.value == 1){
-		macro += "{{ Attack: [[1d20cs>" + macroCriticalRange.value + attribute + proficiency + globalAttack + "]] Advantage: [[1d20cs>" + macroCriticalRange.value +  attribute + proficiency + globalAttack + "]]}}{{ Damage: [[" + macroDamage.value + attribute + globalDamage  + "]] Critical: [[" + macroCritical.value + attribute + globalDamage  + "]]}}"; 
+		macro += "{{ Attack: [[1d20cs>" + macroCriticalRange.value + attribute + proficiency + "(" + globalAttack + ")]] Advantage: [[1d20cs>" + macroCriticalRange.value +  attribute + proficiency + "(" + globalAttack + ")]]}}{{ Damage: [[" + macroDamage.value + attribute + globalDamage  + "]] Critical: [[" + macroCritical.value + attribute + globalDamage  + "]]}}"; 
 	} else if(macroAttkQtd.value > 1){
 		for(let i = 1; i <= macroAttkQtd.value; i++){
-			macro += "{{" + i + "° Attack: [[1d20cs>" + macroCriticalRange.value +  attribute + proficiency + globalAttack + "]] Advantage: [[1d20cs>" + macroCriticalRange.value +  attribute + proficiency + globalAttack + "]]}}{{" + i + "° Damage: [[" + macroDamage.value + attribute + globalDamage +"]] Critical: [[" + macroCritical.value + attribute + globalDamage + "]]}}"; 
+			macro += "{{ " + i + "° Attack: [[1d20cs>" + macroCriticalRange.value +  attribute + proficiency + "(" + globalAttack + ")]] Advantage: [[1d20cs>" + macroCriticalRange.value +  attribute + proficiency + "(" + globalAttack + ")]]}}{{ " + i + "° Damage: [[" + macroDamage.value + attribute + globalDamage + "]] Critical: [[" + macroCritical.value + attribute + globalDamage + "]]}}"; 
 		}
 	}
 

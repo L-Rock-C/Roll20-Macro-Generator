@@ -12,14 +12,17 @@ p{
 
 /* Sections */
 #body-content{
+	width: 100vw;
+	height: 100vh;
 	display: flex;
 }
 #macro-info{
 	width: 70%;
-	height: 100vh;
+	height: calc(100% - 40px);
 	padding-top: 40px;
 	background: linear-gradient(-45deg, #ea018c, #772b90);
 	box-shadow: 2px 0px 12px;
+	transition: all 1s ease-out;
 }
 #macro-form{
 	width: 100%;
@@ -30,6 +33,63 @@ p{
 	display: inline-block;
 	width: calc(30% - 40px);
 	padding: 40px 20px 0px 20px;
+}
+.frame-title, .frame-title-preview{
+	color: white; 
+	text-align: center;
+}
+.frame-title-preview{color: #702082;}
+
+/* Theme mode button */
+#theme-mode{
+	float: right;
+	margin: -30px 80px;
+	display: flex;
+	align-items: center;
+}
+#theme-mode img{
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
+}
+
+.switch{
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 30px;
+	background-color: white;
+	border-radius: 35px;
+}
+
+.slider{
+	cursor: pointer;
+	background-color: #ff278c;
+	transition: 0.4s;
+	border-radius: 34px;
+}
+
+.switch input{
+	display:none;
+}
+
+.slider:before{
+	position: absolute;
+	content: "";
+	height: 20px;
+	width: 20px;
+	left: 5px;
+	bottom: 5px;
+	background-color: #ff278c;
+	transition: 0.4s;
+	border-radius: 50px;
+}
+input:checked + .slider:before{
+	background-color: #702082;
+}
+
+input:checked + .slider:before{
+	transform: translateX(20px);
 }
 
 /* Text and Select inputs */
@@ -56,22 +116,22 @@ p{
 .macro-input-checkbox{
     display: inline-flex;
     color: white;
-    width: 50%;
+    width: 55%;
+}
+.macro-input-checkbox label{
+	width: 65px;
 }
 .macro-input-checkbox p{
     width: 100%;
     text-align: left;
     margin-left: auto;
 }
-.macro-input-checkbox input[type="checkbox"]{
-	width: 15px;
-}
 
 /* Number inputs */
 .macro-input-number{
     display: inline-flex;
     color: white;
-    width: 50%;
+    width: 55%;
 }
 .macro-input-number p{
     width: 100%;
@@ -142,10 +202,10 @@ p{
 
 }
 #macro-preview-img{
-	max-width: 90%;
+	width: 90%;
 	margin: 5px;
 }
-.macro-preview-row{
+.macro-preview-row-1, .macro-preview-row-2{
 	font-family: "Arial";
 	font-weight: 600;
 	color: #404040;
@@ -158,4 +218,69 @@ p{
 	background-color: #fef68e;
 	padding: 0 3px 0 3px;
     margin: 0 5px;
+}
+
+@media screen and (min-height: 800px) and (min-width: 1380px){
+	.frame-title{
+    	font-size: 32px;
+    	height: 5%;
+	}
+	p{
+		font-size: 24px;
+	}
+
+	#theme-mode{
+		margin: -40px 130px;
+	}
+	#theme-mode img{
+		width: 40px;
+		height: 40px;
+	}
+	.switch{
+		width: 90px;
+		height: 50px;
+	}
+	.slider:before{
+		width: 40px;
+		height: 40px;
+	}
+	input:checked + .slider:before{
+		transform: translateX(40px);
+	}
+
+	#macro-form{
+		height: 45%;
+	}
+	.macro-input-select, .macro-input-text{
+		font-size: 24px;
+		height: 50px;
+		border-radius: 20px;
+	}
+	.macro-input-select option{
+		font-size: 12px;
+	}
+	.macro-input-checkbox input[type="checkbox"]{
+		width: 25px;
+	}
+
+	#macro-output-textarea{
+		height: 150px;
+		font-size: 24px;
+	}
+	#macro-output-btns{
+		margin: 10px;
+	}	
+	.macro-btn{
+		font-size: 24px;
+		height: 50px;
+	}
+}
+
+@media screen and (max-width: 1010px){
+	#macro-info{
+		width: 100%;
+	}
+	#macro-preview{
+		display: none;
+	}
 }

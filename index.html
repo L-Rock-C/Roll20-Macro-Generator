@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link rel="icon" href="logoicon.ico">
+	<link rel="icon" href="icons/logoicon.ico">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Attack Macro Generator</title>
@@ -11,7 +11,16 @@
 	<div id="body-content">
 		<!-- Macro form and output --> 
 		<section id="macro-info">
-			<h3 style="color: white; text-align: center;">Macro Generator</h3><br>
+			<div id="header-frame">
+				<h3 class="frame-title">Macro Generator</h3>
+				<div id="theme-mode">
+					<img id="theme-mode-icon" src="icons/sun_icon.png">
+					<label class="switch">
+						<input type="checkbox" name="theme-mode"><span class="slider"></span>
+					</label>
+				</div>	
+			</div>
+			<br>
 			<div>
 				<form id="macro-form">
 					<!-- Attack name --> 
@@ -69,7 +78,9 @@
 					<div class="macro-form-div-input">
 						<div class="macro-input-checkbox">
 							<p>Proficiency</p>
-							<input type="checkbox" name="macro-pb">
+							<label class="switch">
+								<input type="checkbox" name="macro-pb"><span class="slider"></span>
+							</label>
 						</div>
 					</div>
 					<!-- Effect color --> 
@@ -93,7 +104,9 @@
 					<div class="macro-form-div-input">
 						<div class="macro-input-checkbox">
 							<p>Global attack modifier</p>
-							<input type="checkbox" name="macro-global-attk-mod">
+							<label class="switch">
+								<input type="checkbox" name="macro-global-attk-mod"><span class="slider"></span>
+							</label>
 						</div>
 					</div>
 					<!-- Critical range --> 
@@ -107,7 +120,9 @@
 					<div class="macro-form-div-input">
 						<div class="macro-input-checkbox">
 							<p>Global damage modifier</p>
-							<input type="checkbox" name="macro-global-dmg-mod">
+							<label class="switch">
+								<input type="checkbox" name="macro-global-dmg-mod"><span class="slider"></span>
+							</label>
 						</div>
 					</div>
 				</form>	
@@ -125,7 +140,9 @@
 		</section>
 		<!-- Macro preview style roll20 chat -->
 		<section id="macro-preview">
-			<h3 style="color: #702082; text-align: center;">Preview</h3>
+			<div id="header-frame">
+				<h3 class="frame-title-preview">Preview</h3>
+			</div>
 			<br>
 			<div id="macro-preview-square">
 				<div id="macro-peview-header">
@@ -133,7 +150,7 @@
 				</div>
 					<img id="macro-preview-img">
 					<div class="complete-attack-row"> 
-						<div class="macro-preview-row">
+						<div class="macro-preview-row-1">
 							<p>Attack:</p>
 							<div class="macro-preview-row-roll">
 								<p>10</p>
@@ -143,7 +160,7 @@
 								<p>20</p>
 							</div>
 						</div>
-						<div class="macro-preview-row" style="background-color: white;">
+						<div class="macro-preview-row-2" style="background-color: white;">
 							<p>Damage:</p>
 							<div class="macro-preview-row-roll">
 								<p>7</p>
